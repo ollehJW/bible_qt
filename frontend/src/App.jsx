@@ -175,6 +175,10 @@ function StepReader({ step, onComplete }) {
   const chapters = useMemo(() => groupByChapter(verses), [verses]);
   const currentChapter = chapters[chapterIndex];
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [chapterIndex]);
+
   if (status === 'loading') {
     return (
       <section className="reader-screen">
